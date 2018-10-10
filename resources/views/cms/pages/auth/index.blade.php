@@ -35,17 +35,26 @@
 
 	<!-- Style Css -->
 	<link id="pageStyle" rel="stylesheet" href="{{asset('public')}}/css/cms/style.css">
-
+	<style type="text/css">
+	.container-pages {
+			display: flex;
+			background: #fff;
+			background: -webkit-linear-gradient(left, #3867d6 50%, #fff 50%);
+			background: -o-linear-gradient(left, #3867d6 50%, #fff 50%);
+			background: -moz-linear-gradient(left, #3867d6 50%, #fff 50%);
+			background: linear-gradient(left, #3867d6 50%, #fff 50%);
+		}
+	</style>
 </head>
 
 <body>
 	<section class="container-pages">
 
-		<div class="brand-logo float-left"><a class="" href="#" style="color: black;"> Consilio CMS</a></div>
+		<div class="brand-logo float-left"><a class="" href="#" > Consilio CMS</a></div>
 
 		<div class="pages-tag-line text-white" >  
-			<div class="h4"  style="color: black;">Vamos começar!</div>
-			<small  style="color: black;"> Painel de Administração mais poderoso do mundo</small>
+			<div class="h4" >Vamos começar!</div>
+			<small > Painel de Administração mais poderoso do mundo</small>
 		</div>
 
 		<div class="card pages-card col-lg-4 col-md-6 col-sm-6">
@@ -81,48 +90,48 @@
 				</form>
 				@if (Session::has('alert'))
 				<style type="text/css">
-					.alert-error{
-						background: red;
-						color: white;
-					}
-					.alert-success{
-						background: green;
-						color: white;
-					}
-				</style>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="alert alert-{!!session('alert.code')!!}" style="text-align: center;">
-							{!! session('alert.text') !!}
-						</div>
+				.alert-error{
+					background: red;
+					color: white;
+				}
+				.alert-success{
+					background: green;
+					color: white;
+				}
+			</style>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="alert alert-{!!session('alert.code')!!}" style="text-align: center;">
+						{!! session('alert.text') !!}
 					</div>
 				</div>
-				@endif	
-
-				<div class="text-center">
-					<small>você esqueceu sua senha?
-						<a href="{!!route('cms-auth-forgot')!!}" class="text-theme">clique aqui</a>
-					</small>
-				</div>
-
 			</div>
-			<!-- end card-body -->
+			@endif	
+
+			<div class="text-center">
+				<small>você esqueceu sua senha?
+					<a href="{!!route('cms-auth-forgot')!!}" class="text-theme">clique aqui</a>
+				</small>
+			</div>
+
 		</div>
-		<!-- end card -->
-	</section>
-	<!-- end section container -->
-	<div class="half-circle"></div>
-	<div class="small-circle"></div>
+		<!-- end card-body -->
+	</div>
+	<!-- end card -->
+</section>
+<!-- end section container -->
+<div class="half-circle"></div>
+<div class="small-circle"></div>
 
 
-	<div id="copyright"  style="color: black;"><a  style="color: black;" href="//consilio.com.br" target="_blank" class="text-theme">Consilio</a> &copy; {!!date('Y')!!} todos os direitos reservados. </div>
+<div id="copyright"  ><a  href="//consilio.com.br" target="_blank" class="text-theme">Consilio</a> &copy; {!!date('Y')!!} todos os direitos reservados. </div>
 
 
 
-	<!-- Libs -->
-	<script src="{{asset('public'.elixir('js/cms/app-libs.js'))}}"></script> 
-	<!-- App -->
-	<script src="{{asset('public'.elixir('js/cms/app.js'))}}"></script> 
+<!-- Libs -->
+<script src="{{asset('public'.elixir('js/cms/app-libs.js'))}}"></script> 
+<!-- App -->
+<script src="{{asset('public'.elixir('js/cms/app.js'))}}"></script> 
 
 </body>
 
