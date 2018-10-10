@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
                 'type'         => '1',
                 'first_name'     => 'Administrador',
                 'last_name'      => 'CMS',
-                'email'          => 'admin@admin.com.br',
+                'email'          => 'desenvolvimento@webflavia.com.br',
                 'login'          => 'admin',
                 'birth'          => '2018-01-01',
                 'user_insert'    => '1',
