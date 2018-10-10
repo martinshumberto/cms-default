@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms'], function() {
 
 	/* Acesso */
 	Route::group(['middleware' => 'auth:cms'], function() {
-		Route::get('/', array('as'        => 'cms-dashboard', 'uses' => 'DashboardController@index', 'nickname' => "Dashboard do CMS"));	
+		Route::get('/', array('as' => 'cms-dashboard', 'uses' => 'DashboardController@index', 'nickname' => "Dashboard do CMS"));	
 	});
 });
 

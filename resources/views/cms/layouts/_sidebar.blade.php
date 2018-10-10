@@ -1,54 +1,29 @@
         <div class="sidebar" id="sidebar">
             <nav class="sidebar-nav" id="sidebar-nav-scroller">
                 <ul class="nav">
+                    <li class="nav-item nav-dropdown open">
+                        <a class="nav-link " href="#">
+                            <i class="mdi mdi-gauge"></i> Dashboard
+                            {{-- <span class="badge badge-main badge-boxed badge-warning">New</span> --}}
+                        </a>
+                    </li>
+
+                    <li class="nav-title">Administração</li>
                     <li class="nav-item nav-dropdown">
                         <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="mdi mdi-gauge"></i> Dashboard
-                            <span class="badge badge-main badge-boxed badge-warning">New</span>
+                            <i class="mdi mdi-arrange-send-backward"></i> Páginas
                         </a>
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="../../contents/dashboards/dashboard-sales.html"> Sales </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../contents/dashboards/dashboard-property.html"> Property </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../contents/dashboards/dashboard-project-management.html"> Project Management </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="../../contents/dashboards/dashboard-analytics.html"> Analytics
-                                    <span class="badge badge-sub badge-boxed badge-warning">New</span>
-                                </a>
+                                <a class="nav-link" href="../../contents/apps/apps-calendar.html"> Página 1</a>
                             </li>
                         </ul>
                     </li>
-
-                    <li class="nav-title">Layouts</li>
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="mdi mdi-atom"></i> Apps
-                            <span class="badge badge-main badge-boxed badge-warning">New</span>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="#">
+                            <i class="mdi  mdi-apps"></i> Categorias
                         </a>
-
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../contents/apps/apps-calendar.html"> Calendar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../contents/apps/apps-mail.html"> Mailbox</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../contents/apps/apps-message.html"> Direct Message</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../contents/apps/apps-pm.html"> Projects
-                                    <span class="badge badge-sub badge-boxed badge-warning">New</span>
-                                </a>
-                            </li>
-                        </ul>
-
                     </li>
                     <li class="nav-item nav-dropdown">
                         <a class="nav-link nav-dropdown-toggle" href="#">
