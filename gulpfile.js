@@ -37,7 +37,7 @@ elixir((mix) => {
 	/*------------------------------------------------------------------------*/
 
 	/* SCSS Cms */
-	mix.sass('resources/assets/sass/cms/style.scss', 'public/css/cms/style.css');
+	mix.sass(['resources/assets/sass/cms/style.scss','resources/assets/sass/morris.scss'], 'public/css/cms/style.css');
 
 	/* JS Libs Cms */
 	mix.scripts([
@@ -48,12 +48,15 @@ elixir((mix) => {
 		'resources/assets/js/cms/libs/chart.js/dist/Chart.min.js',
 		'resources/assets/js/cms/libs/nicescroll/jquery.nicescroll.min.js',
 		'resources/assets/js/cms/libs/jquery-loading/dist/jquery.loading.min.js',
+		'resources/assets/js/cms/libs/raphael/raphael.min.js',
+		'resources/assets/js/cms/libs/charts-morris-chart/morris.min.js',
 		], 'public/js/cms/app-libs.js'); 
 
 
 	/* JS Cms */
 	mix.scripts([
 		'resources/assets/js/cms/app.js',
+		'resources/assets/js/cms/charts-morris-chart-example.js',
 		], 'public/js/cms/app.js'); 
 
 

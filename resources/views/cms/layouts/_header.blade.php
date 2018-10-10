@@ -344,10 +344,5 @@
 
         </ul>
 
-        <div class="hamburger hamburger--arrowalt-r navbar-toggler aside-menu-toggler ">
-            <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
-            </div>
-        </div>
     </header>
     <!-- end header -->
