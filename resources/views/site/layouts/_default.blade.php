@@ -33,43 +33,19 @@
     <!-- App Css -->
     <link id="pageStyle" rel="stylesheet" href="{{asset('public')}}/css/app.css">
 
-    <!-- Style Css -->
-    <link id="pageStyle" rel="stylesheet" href="{{asset('public')}}/css/cms/style.css">
+    <link rel="stylesheet" href="{{asset('public'.elixir('css/site/'.Route::currentRouteName().'.css'))}}">  
+
 
 </head>
 
-<body class="app sidebar-fixed aside-menu-off-canvas aside-menu-hidden header-fixed">
-    @include('cms.layouts._header')
-    <!-- end header -->
+<body>
 
-    <div class="app-body">
+ @yield('content')
 
-        @include('cms.layouts._sidebar')
-        <!-- end sidebar -->
+ <input type="hidden" name="app_url" id="app_url" value="{!!url("/")!!}">
+ <script src="{{asset('public'.elixir('js/site/'.Route::currentRouteName().'-libs.js'))}}"></script> 
+ 
+ <script src="{{asset('public'.elixir('js/site/'.Route::currentRouteName().'.js'))}}" async></script>  
 
-        <main class="main">
-            @yield('content')
-        </main>
-        <!-- end main -->
-
-        <!-- end aside -->
-
-    </div>
-    <!-- end app-body -->
-
-
-
-    <footer class="app-footer">
-        <a href="//consilio.com.br" target="_blank" class="text-theme">Consilio</a> &copy; {!!date('Y')!!} todos os direitos reservados.
-    </footer>
-
-    <input type="hidden" name="app_url" id="app_url" value="{!!url("/")!!}">
-
-    <!-- Libs -->
-    <script src="{{asset('public'.elixir('js/cms/app-libs.js'))}}"></script> 
-    <!-- App -->
-    <script src="{{asset('public'.elixir('js/cms/app.js'))}}"></script> 
 
 </body>
-
-</html>

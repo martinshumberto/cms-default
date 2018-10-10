@@ -15,9 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::group(['namespace' => 'Cms', 'prefix' => 'cms'], function() {
-
-	Route::get('auth', array('as'        => 'cms-auth', 'uses' => 'LoginController@index', 'nickname' => "Login do CMS"));	
-
+/* SITE */
+Route::group(['namespace' => 'Site'], function() { 
+	Route::get('/', array('as' => 'site-home', 'uses' => 'HomeController@index'));
 });
+
+
+/* CMS */
+Route::group(['namespace' => 'Cms', 'prefix' => 'cms'], function() {
+	Route::get('auth', array('as'        => 'cms-auth', 'uses' => 'LoginController@index', 'nickname' => "Login do CMS"));	
+	Route::get('/', array('as'        => 'cms-dashboard', 'uses' => 'DashboardController@index', 'nickname' => "Dashboard do CMS"));	
+});
+
