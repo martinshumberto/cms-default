@@ -53,12 +53,13 @@
 				<div class="h4 text-center text-theme"><strong>Acessar</strong></div>
 				<div class="small text-center text-dark"> entre com sua conta </div>
 
-				<form action="/" method="get" >
+				<form method="POST" action="{!!route('cms-auth')!!}" accept-charset="UTF-8" autocomplete="on">
+					{{csrf_field()}}    	
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon text-theme"><i class="fa fa-user"></i> 
 							</span>
-							<input type="text" id="username" name="username" class="form-control" placeholder="E-mail/Usuário">
+							<input type="text" name="email" class="form-control" placeholder="E-mail">
 						</div>
 					</div>
 
@@ -72,11 +73,35 @@
 					<div class="form-group form-actions">
 						<button type="submit" class="btn  btn-theme login-btn ">   Entrar   </button>
 					</div>
+					<div class="row form-group form-actions">
+						<div  class="pull-left" style="float: unset; width: 100%; text-align: center;">
+							<input type="checkbox" name="remember" id="remember" value="TRUE">	<label for="remember">Lembrar-me</label>
+						</div>
+					</div>
 				</form>
+				@if (Session::has('alert'))
+				<style type="text/css">
+					.alert-error{
+						background: red;
+						color: white;
+					}
+					.alert-success{
+						background: green;
+						color: white;
+					}
+				</style>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="alert alert-{!!session('alert.code')!!}" style="text-align: center;">
+							{!! session('alert.text') !!}
+						</div>
+					</div>
+				</div>
+				@endif	
 
 				<div class="text-center">
 					<small>você esqueceu sua senha?
-						<a href="pages-signup.html" class="text-theme">clique aqui</a>
+						<a href="{!!route('cms-auth-forgot')!!}" class="text-theme">clique aqui</a>
 					</small>
 				</div>
 

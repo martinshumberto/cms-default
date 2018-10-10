@@ -163,6 +163,13 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        
+        Collective\Html\HtmlServiceProvider::class,
+        JeroenNoten\LaravelCkEditor\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        \Artesaos\Defender\Providers\DefenderServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
         /*
          * Package Service Providers...
          */

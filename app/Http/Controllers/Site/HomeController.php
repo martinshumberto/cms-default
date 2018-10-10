@@ -10,8 +10,8 @@ use App\Http\Requests;
 
 class HomeController extends SiteController
 {
-   public function index()
-   {	
-   		return view("site/pages/home/index");
-   }
+	public function index()
+	{	
+		return view("site/pages/home/index");
+	}
 }

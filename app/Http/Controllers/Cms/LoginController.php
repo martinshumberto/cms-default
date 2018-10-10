@@ -18,4 +18,29 @@ class LoginController extends Controller
    {	
    		return view("cms/pages/auth/index");
    }
+   
+    public function logout(Request $request) {
+    	
+        Auth::logout();
+    	
+        $request->session()->flash('alert', array('code'=> 'success', 'text'  => 'Você foi desconectado'));
+    	return redirect(route('cms-auth'));
+    }
+
+    public function authenticate(Request $request) {
+
+   		if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password'), 'status' => '1'], $request->input('remember'))) {
+
+            return redirect()->intended(route('cms-dashboard'));
+        }
+
+        $request->session()->flash('alert', array('code'=> 'error', 'text'  => 'Acesso não autorizado'));
+
+        return back();
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('cms');
+    }
 }

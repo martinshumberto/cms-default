@@ -9,16 +9,16 @@ use View;
 
 class CmsController extends Controller
 {
-    public function __construct(Request $request)
-    {
-        parent::__construct();
+	public function __construct(Request $request)
+	{
+//		parent::__construct();
 
-        // if($request->route()->getName() != "cms-home") {
-        // 	$this->middleware('authorization:'.$request->route()->getName());
-        // }       
+
 
         // View::share(array(
         // )); 
-    }  
+	} 
 }
+
+
 
