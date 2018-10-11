@@ -17,17 +17,12 @@ class Modules extends Model
 		
 		switch ($this->status) {
 			case '1':
-				return '<a href="http://poconet.com.br/painel/modules/action/status/1/disabled/"><i style="color: green;" class="fa fa-check"></i></a>';
+				return '<i class="fa fa-check"></i>';
 			break;
 			case '2':
-				return "Inativo";
+				return '<i  class="fa fa-times"></i>';
 			break;
 		}
-	}
-
-	public function status()
-	{
-
 	}
 
 	public function user_insert()
