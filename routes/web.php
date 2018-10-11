@@ -28,6 +28,11 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms'], function() {
 	/* Acesso */
 	Route::group(['middleware' => 'auth:cms'], function() {
 		Route::get('/', array('as' => 'cms-dashboard', 'uses' => 'DashboardController@index', 'nickname' => "Dashboard do CMS"));	
+
+
+
+		
+		Route::get('/configuracoes/sistema', array('as' => 'cms-settings-system', 'uses' => 'SettingsController@system', 'nickname' => "Dashboard do CMS"));	
 	});
 });
 

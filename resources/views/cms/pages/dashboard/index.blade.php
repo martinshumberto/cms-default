@@ -82,7 +82,7 @@
 		<div class="col-md-8">
 			<div class="card card-accent-theme">
 				<div class="card-body">
-					<h4 class="text-theme">line-chart</h4>
+					<h4 class="text-theme">Estatísticas de Acesso</h4>
 					<div id="morris-area-chart"></div>
 				</div>
 				<!-- end card-body -->

@@ -310,7 +310,7 @@
             <li class="nav-item dropdown">
                 <a class="btn btn-round btn-theme btn-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 
-                    <span class="">Administrador
+                    <span class="">Wallace
                         <i class="fa fa-arrow-down"></i>
                     </span>
                 </a>

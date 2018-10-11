@@ -64,6 +64,7 @@
     </footer>
 
     <input type="hidden" name="app_url" id="app_url" value="{!!url("/")!!}">
+    <input type="hidden" name="app_hash" id="app_hash" value="{!!url("/")!!}">
 
     <!-- Libs -->
     <script src="{{asset('public'.elixir('js/cms/app-libs.js'))}}"></script> 
