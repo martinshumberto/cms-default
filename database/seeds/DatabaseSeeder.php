@@ -34,6 +34,25 @@ class DatabaseSeeder extends Seeder
                 'created_at'     => date('Y-m-d H:i:s'),
                 'updated_at'     => date('Y-m-d H:i:s')
             ]);
-        }         
+        }
+
+        $definitions = DB::table('definitions')->first();        
+
+        if(empty($definitions))
+        {
+            DB::table('definitions')->insert([
+                'key'               => '2a$08$Cf1f11ePArKlBJomM0F6a.0nbdvdH2XNzP9yvICywGYJQ8L9NfZjK',
+                'register_for_page' => '20',
+                'photos_for_page'   => '20',
+                'folder_files'      => '/storage/pb/',
+                'timezone'          => 'America/Cuiaba',
+                'ext_photos'        => 'gif,jpeg,jpg,png,bmp,JPG,JPEG,PNG,bmp',
+                'ext_files'         => 'doc,pdf,docx,swf,SWF,fla,FLA,gif,jpeg,jpg,png,bmp,JPG,JPEG,PNG,bmp,HTML,html,HTM,htm',
+                'adverts'           => '2',
+                'polls'             => '2',
+                'newsletter'        => '2',
+                'status_site'       => '1'
+            ]);
+        }            
     }
 }

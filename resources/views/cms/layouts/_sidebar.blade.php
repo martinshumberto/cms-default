@@ -83,13 +83,11 @@
                                 <li class="nav-item nav-dropdown ">
                                     <a class="nav-link " href="#">
                                         <i class="mdi mdi-application"></i> Módulos
-                                        {{-- <span class="badge badge-main badge-boxed badge-warning">New</span> --}}
                                     </a>
                                 </li>
                                 <li class="nav-item nav-dropdown ">
-                                    <a class="nav-link " href="#">
-                                        <i class="mdi mdi-settings-box"></i> Sistema
-                                        {{-- <span class="badge badge-main badge-boxed badge-warning">New</span> --}}
+                                    <a class="nav-link " href="{!!route('cms-settings-system')!!}">
+                                        <i class="mdi mdi-settings-box"></i> Sistema                                        
                                     </a>
                                 </li>                             
 

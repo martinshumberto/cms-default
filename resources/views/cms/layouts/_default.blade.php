@@ -16,17 +16,6 @@
     <meta name="robots" content="index,follow,noodp"/>
     <meta name="language" content="portuguese"/>
 
-
-    <!-- Open Graph data -->
-    <meta property="og:locale" content="pt_BR"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{{Config::get('app.appTitle')}}"/>
-    <meta property="og:url" content="{{url()->current()}}"/>
-    <meta property="og:image" content="{{Config::get('app.appImage')}}"/>
-    <meta property="og:description" content="{{Config::get('app.appDescription')}}"/>
-    <meta property="og:site_name" content="{{url("/")}}"/>
-    <!-- End meta tags -->
-
     <!-- Start loading the favicon-->
     <link rel="shortcut icon" href="{{asset('public')}}/favicon.png" type="image/png">
 
@@ -35,6 +24,10 @@
 
     <!-- Style Css -->
     <link id="pageStyle" rel="stylesheet" href="{{asset('public')}}/css/cms/style.css">
+
+    @if (file_exists("public/css/cms/".Route::currentRouteName().".css"))
+    <link rel="stylesheet" href="{{asset('public'.elixir('css/cms/'.Route::currentRouteName().'.css'))}}">  
+    @endif
 
 </head>
 
@@ -47,7 +40,7 @@
         @include('cms.layouts._sidebar')
         <!-- end sidebar -->
 
-        <main class="main">
+        <main class="main"> 
             @yield('content')
         </main>
         <!-- end main -->
@@ -64,12 +57,22 @@
     </footer>
 
     <input type="hidden" name="app_url" id="app_url" value="{!!url("/")!!}">
-    <input type="hidden" name="app_hash" id="app_hash" value="{!!url("/")!!}">
+    <input type="hidden" name="app_hash" id="app_hash" value="{!!criptBySystem($users->users_id)!!}">
 
     <!-- Libs -->
     <script src="{{asset('public'.elixir('js/cms/app-libs.js'))}}"></script> 
+    @if (file_exists("public/js/cms/".Route::currentRouteName()."-libs.js"))
+    <script src="{{asset('public'.elixir('js/cms/'.Route::currentRouteName().'-libs.js'))}}"></script> 
+    @endif
+
+
     <!-- App -->
     <script src="{{asset('public'.elixir('js/cms/app.js'))}}"></script> 
+    @if (file_exists("public/js/cms/".Route::currentRouteName().".js"))
+    <script src="{{asset('public'.elixir('js/cms/'.Route::currentRouteName().'.js'))}}" async></script>   
+    @endif
+
+
 
 </body>
 

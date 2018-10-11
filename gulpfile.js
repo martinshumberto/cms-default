@@ -20,8 +20,8 @@ elixir((mix) => {
 
 	/* JS Libs Site */
 	mix.scripts([
-		'resources/assets/js/site/libs/form-scripts.js',
 		'resources/assets/js/site/libs/jquery-ui.js',
+		'resources/assets/js/site/libs/form-scripts.js',
 		'resources/assets/js/site/libs/validator.min.js',
 		], 'public/js/site/site-home-libs.js'); 
 
@@ -32,12 +32,16 @@ elixir((mix) => {
 
 
 
+
+
 	/*------------------------------------------------------------------------*/
 	/* cms */
 	/*------------------------------------------------------------------------*/
 
 	/* SCSS Cms */
-	mix.sass(['resources/assets/sass/cms/style.scss','resources/assets/sass/morris.scss'], 'public/css/cms/style.css');
+	mix.sass('resources/assets/sass/cms/style.scss', 'public/css/cms/style.css');
+	mix.sass(['resources/assets/sass/cms/pages/home.scss'], 'public/css/cms/cms-dashboard.css');
+	mix.sass(['resources/assets/sass/cms/pages/settings-system.scss'], 'public/css/cms/cms-settings-system.css');
 
 	/* JS Libs Cms */
 	mix.scripts([
@@ -48,22 +52,42 @@ elixir((mix) => {
 		'resources/assets/js/cms/libs/chart.js/dist/Chart.min.js',
 		'resources/assets/js/cms/libs/nicescroll/jquery.nicescroll.min.js',
 		'resources/assets/js/cms/libs/jquery-loading/dist/jquery.loading.min.js',
+		], 'public/js/cms/app-libs.js'); 
+
+	// ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
+
+	mix.scripts([
 		'resources/assets/js/cms/libs/raphael/raphael.min.js',
 		'resources/assets/js/cms/libs/charts-morris-chart/morris.min.js',
-		], 'public/js/cms/app-libs.js'); 
+		], 'public/js/cms/cms-dashboard-libs.js'); 
+
+	mix.scripts([
+		'resources/assets/js/cms/libs/sliderrange/dist/jquery-asRange.min.js',
+		'resources/assets/js/cms/libs/jquery-labelauty/source/jquery-labelauty.js',
+		], 'public/js/cms/cms-settings-system-libs.js'); 
 
 
 	/* JS Cms */
 	mix.scripts([
 		'resources/assets/js/cms/app.js',
-		'resources/assets/js/cms/charts-morris-chart-example.js',
 		], 'public/js/cms/app.js'); 
+
+	// ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
+
+	mix.scripts([
+		'resources/assets/js/cms/charts-morris-chart-example.js',
+		], 'public/js/cms/cms-dashboard.js'); 
+
+	mix.scripts([
+		'resources/assets/js/cms/modules/ranger.js',
+		'resources/assets/js/cms/modules/labelauty.js',
+		], 'public/js/cms/cms-settings-system.js'); 
 
 
 
 
 	/*------------------------------------------------------------------------*/
-	/* ARQUIVOS */
+	/* FILES */
 	/*------------------------------------------------------------------------*/
 
 	mix.copy('resources/assets/fonts', 'public/fonts');

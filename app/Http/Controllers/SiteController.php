@@ -9,7 +9,7 @@ use View;
 
 
 # Global
-//use App\Model\Slider;
+use App\Model\Definitions;
 
 
 class SiteController extends Controller
@@ -18,7 +18,7 @@ class SiteController extends Controller
 	{
 		//parent::__construct();   
 		View::share(array(
-			"dados"   => "texte"
+			"defintions"   => "defintions"
 		));    
 	}  
 }

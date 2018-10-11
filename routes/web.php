@@ -29,10 +29,9 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms'], function() {
 	Route::group(['middleware' => 'auth:cms'], function() {
 		Route::get('/', array('as' => 'cms-dashboard', 'uses' => 'DashboardController@index', 'nickname' => "Dashboard do CMS"));	
 
-
-
-		
-		Route::get('/configuracoes/sistema', array('as' => 'cms-settings-system', 'uses' => 'SettingsController@system', 'nickname' => "Dashboard do CMS"));	
+		/* Páginas */
+		Route::get('/configuracoes/sistema', array('as' => 'cms-settings-system', 'uses' => 'SettingsController@system', 'nickname' => "Configurações do CMS"));	
+		Route::post('/configuracoes/sistema', array('as' => 'cms-settings-system-update', 'uses' => 'SettingsController@systemUpdate', 'nickname' => "Configurações do CMS"));	
 	});
 });
 
