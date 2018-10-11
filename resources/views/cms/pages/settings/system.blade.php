@@ -14,6 +14,8 @@
 </ol>
 
 <div class="container">
+	<!-- Alerts -->
+	@include('cms.layouts._alerts')
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="card ">

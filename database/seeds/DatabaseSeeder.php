@@ -13,6 +13,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
+        $states = DB::table('states')->first();
+
+        if(empty($states))
+        {
+            $states    = file_get_contents("database/seeds/files/states.json");
+
+            DB::table('states')->insert(json_decode($states, true));
+        }
+
+        $cities = DB::table('cities')->first();
+
+        if(empty($cities))
+        {
+            $cities    = file_get_contents("database/seeds/files/cities.json");
+
+            DB::table('cities')->insert(json_decode($cities, true));
+        }   
 
 
         $user = DB::table('users')->first();        
@@ -53,6 +71,16 @@ class DatabaseSeeder extends Seeder
                 'newsletter'        => '2',
                 'status_site'       => '1'
             ]);
-        }            
+        }      
+
+        $site = DB::table('site')->first();        
+
+        if(empty($site))
+        {
+            DB::table('site')->insert([
+                'title' => 'Titulo do Site',
+                'description'   => 'Descricao do site'
+            ]);
+        }         
     }
 }

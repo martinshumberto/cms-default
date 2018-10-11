@@ -18,7 +18,7 @@ class CmsController extends Controller
 		$defintions = Definitions::first();
 
 		View::share(array(
-			"defintions"   => "defintions"
+			"defintions"   => $defintions,
 		));
 	} 
 }

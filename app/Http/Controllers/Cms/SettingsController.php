@@ -12,6 +12,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 # Models
 use App\Model\Definitions;
+use App\Model\Site;
+use App\Model\States;
+use App\Model\Cities;
 
 class SettingsController extends Controller
 {
@@ -19,11 +22,9 @@ class SettingsController extends Controller
 
 	public function system()
 	{	
-		$users = Auth::user();
 		$definitions = Definitions::first();
 
-		return view("cms/pages/settings/system", array(
-			"users" => $users,
+		return view("cms/pages/settings/system", array(			
 			"definitions" => $definitions,
 		));
 	}
@@ -71,5 +72,34 @@ class SettingsController extends Controller
 		}
 
 		return redirect(route('cms-settings-system'));
+	}
+
+	public function site()
+	{	
+		$site = Site::first();
+		$states = States::where('status', TRUE)->get();
+		$cities = Cities::where("states_id", $site->states_id)->get();
+		
+		return view("cms/pages/settings/site", array(			
+			"site" => $site,
+			"states" => $states,
+			"cities" => $cities,
+		));
+	}
+
+
+	public function siteUpdate(Request $request)
+	{
+
+		try {
+
+			Site::first()->update($request->all());
+			$request->session()->flash('alert', array('code'=> 'success', 'text'  => 'Operação realizada com sucesso!'));
+		} catch (Exception $e) {
+			$request->session()->flash('alert', array('code'=> 'error', 'text'  => $e));
+		}
+
+		return redirect(route('cms-settings-site'));
+
 	}
 }

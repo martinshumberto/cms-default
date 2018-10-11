@@ -23,6 +23,7 @@ elixir((mix) => {
 		'resources/assets/js/site/libs/jquery-ui.js',
 		'resources/assets/js/site/libs/form-scripts.js',
 		'resources/assets/js/site/libs/validator.min.js',
+		'resources/assets/js/site/libs/jquery.mask.js',
 		], 'public/js/site/site-home-libs.js'); 
 
 	/* JS Site */
@@ -66,6 +67,12 @@ elixir((mix) => {
 		'resources/assets/js/cms/libs/jquery-labelauty/source/jquery-labelauty.js',
 		], 'public/js/cms/cms-settings-system-libs.js'); 
 
+	mix.scripts([
+		'resources/assets/js/site/libs/jquery.mask.js',
+		'resources/assets/js/cms/libs/select2/dist/js/select2.min.js',
+		'resources/assets/js/cms/libs/bootstrap-maxlength/src/bootstrap-maxlength.js',
+		], 'public/js/cms/cms-settings-site-libs.js'); 
+
 
 	/* JS Cms */
 	mix.scripts([
@@ -82,6 +89,13 @@ elixir((mix) => {
 		'resources/assets/js/cms/modules/ranger.js',
 		'resources/assets/js/cms/modules/labelauty.js',
 		], 'public/js/cms/cms-settings-system.js'); 
+
+	mix.scripts([
+		'resources/assets/js/cms/modules/mask.js',
+		'resources/assets/js/cms/modules/select2.js',
+		'resources/assets/js/cms/modules/max.length.js',
+		'resources/assets/js/cms/modules/states_cities.js',
+		], 'public/js/cms/cms-settings-site.js'); 
 
 
 

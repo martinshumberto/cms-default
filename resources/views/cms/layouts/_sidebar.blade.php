@@ -1,8 +1,8 @@
         <div class="sidebar" id="sidebar">
             <nav class="sidebar-nav" id="sidebar-nav-scroller">
                 <ul class="nav">
-                    <li class="nav-item nav-dropdown open">
-                        <a class="nav-link " href="#">
+                    <li class="nav-item nav-dropdown  {!!(Route::currentRouteName() == 'cms-dashboard') ? 'open' : ' '!!}">
+                        <a class="nav-link " href="{!!route('cms-dashboard')!!}">
                             <i class="mdi mdi-gauge"></i> Dashboard
                             {{-- <span class="badge badge-main badge-boxed badge-warning">New</span> --}}
                         </a>
@@ -49,7 +49,7 @@
 
                                 <ul class="nav-dropdown-items">                            
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../../contents/pages/pages-login.html"> Site</a>
+                                        <a class="nav-link" href="{!!route('cms-settings-site')!!}"> Site</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../../contents/pages/pages-login.html"> Usuários</a>
@@ -81,7 +81,7 @@
                                     Administração Consilio
                                 </li>
                                 <li class="nav-item nav-dropdown ">
-                                    <a class="nav-link " href="#">
+                                    <a class="nav-link " href="{!!route('cms-modules')!!}">
                                         <i class="mdi mdi-application"></i> Módulos
                                     </a>
                                 </li>

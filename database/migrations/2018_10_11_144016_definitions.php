@@ -28,6 +28,7 @@ class Definitions extends Migration
             $table->integer('polls')->unsigned();
             $table->integer('newsletter')->unsigned();
             $table->integer('status_site')->unsigned();
+            $table->timestamps();
         });
     }
 
