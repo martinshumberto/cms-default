@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
         if(empty($definitions))
         {
             DB::table('definitions')->insert([
-                'key'               => '2a$08$Cf1f11ePArKlBJomM0F6a.0nbdvdH2XNzP9yvICywGYJQ8L9NfZjK',
+                'key'               => 'Cf1f11ePArKlBJomM0F6a.0nbdvdH2XNzP9yvICywGYJQ8L9NfZjK',
                 'register_for_page' => '20',
                 'photos_for_page'   => '20',
                 'folder_files'      => '/storage/pb/',

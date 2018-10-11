@@ -16,7 +16,7 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="../../contents/apps/apps-calendar.html"> Página 1</a>
+                                <a class="nav-link" href=""> Página 1</a>
                             </li>
                         </ul>
                     </li>

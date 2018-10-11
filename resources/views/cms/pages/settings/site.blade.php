@@ -151,7 +151,7 @@
 										</select>
 										@else
 
-										<select name="cities_id" class="form-control select2" data-plugin="select2">	
+										<select id="cities_select" name="cities_id" class="form-control select2" data-plugin="select2">	
 											@foreach($cities as $value)		
 											<option value="{!!$value->cities_id!!}" @if($site->cities_id == $value->cities_id) selected="selected" @endif >
 												{!!$value->name!!}
