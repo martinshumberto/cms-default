@@ -15,17 +15,17 @@ class Site extends Migration
     {
         Schema::create('site', function (Blueprint $table) {
             $table->increments('site_id');
-            $table->string('title');
-            $table->text('description');
-            $table->text('keywords');
-            $table->string('email');
-            $table->string('password_email');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('district');
-            $table->string('zip_code');
-            $table->string('states_id');
-            $table->string('cities_id');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
+            $table->string('email')->nullable();
+            $table->string('password_email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('district')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('states_id')->nullable();
+            $table->string('cities_id')->nullable();
             $table->timestamps();
         });
     }

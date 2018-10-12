@@ -15,9 +15,9 @@ class Definitions extends Migration
     {
         Schema::create('definitions', function (Blueprint $table) {
             $table->increments('definitions_id');
-            $table->string('key');
-            $table->string('user_cpanel');
-            $table->string('password_cpanel');
+            $table->string('key')->nullable();
+            $table->string('user_cpanel')->nullable();
+            $table->string('password_cpanel')->nullable();
             $table->integer('register_for_page');
             $table->integer('photos_for_page');
             $table->string('folder_files');

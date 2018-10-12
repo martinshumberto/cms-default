@@ -10,7 +10,7 @@
 {{-- 	<li class="breadcrumb-item">
 		<a href="#">Layouts</a>
 	</li> --}}
-	<li class="breadcrumb-item active">Modulos do Site</li>
+	<li class="breadcrumb-item active">Modulos</li>
 </ol>
 
 <div class="container">
@@ -37,7 +37,7 @@
 						</div>
 
 						<button type="submit" class="btn btn-theme btn-sm"><i class="fa fa-search"></i> Buscar</button>
-						<button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Novo</button>
+						<a href="{!!route('cms-modules-create')!!}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Novo</a>
 					</div>
 				</div>
 			</div>

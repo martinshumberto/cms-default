@@ -97,6 +97,15 @@ elixir((mix) => {
 		'resources/assets/js/cms/modules/states_cities.js',
 		], 'public/js/cms/cms-settings-site.js'); 
 
+	mix.scripts([
+		'resources/assets/js/cms/modules/checkmodules.js',
+		], 'public/js/cms/cms-modules-create.js'); 
+
+
+	mix.scripts([
+		'resources/assets/js/cms/modules/editemodule.js',
+		], 'public/js/cms/cms-modules-show.js'); 
+
 
 
 

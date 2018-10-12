@@ -16,24 +16,24 @@ class ModulesController extends CmsController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+   public function index(Request $request)
+   {
+    $modules = Modules::orderBy("modules_id", "DESC");
+
+    if($request->input('title'))
     {
-        $modules = Modules::orderBy("modules_id", "DESC");
+     $modules->where('title', 'like', '%'.$request->input('title').'%');
+ }
 
-        if($request->input('title'))
-        {
-           $modules->where('title', 'like', '%'.$request->input('title').'%');
-        }
+ if($request->input('status'))
+ {
+     $modules->where('status', $request->input('status'));
+ }
 
-        if($request->input('status'))
-        {
-           $modules->where('status', $request->input('status'));
-        }
-
-        return view("cms/pages/modules/index", array(
-            "modules" => $modules->paginate(50)
-        ));
-    }
+ return view("cms/pages/modules/index", array(
+    "modules" => $modules->paginate(50)
+));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -54,23 +54,10 @@ class ModulesController extends CmsController
     public function store(Request $request)
     {
 
-        $validator = Validator::make($request->input(), [
-            'title'   => 'required',            
-            'status' => 'required'
 
-
-        ]);
-
-        $niceNames = array(
-            'title'   => 'nome',         
-            'status' => 'status'
-        );
-
-        $validator->setAttributeNames($niceNames); 
-
-        if($validator->fails()) {
-            return redirect(route('cms-modules-create'))->withErrors($validator->messages())->withInput();        
-        } 
+        $request->merge(array(
+            'status' =>  '1'
+        ));
 
         try {
             $modules = Modules::create($request->all());
@@ -109,31 +96,78 @@ class ModulesController extends CmsController
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->input(), [
-            'title'   => 'required',         
-            'status' => 'required'
 
-        ]);
+        echo "<pre>";
+        var_dump($request->all());
 
-        $niceNames = array(
-            'title'   => 'nome',       
-            'status' => 'status'
-        );
+        if($request->input('title-checkbox') != 1){
+            $request->merge(array(
+                'title' =>  null
+            ));
+        }
 
-        $validator->setAttributeNames($niceNames); 
+        if($request->input('subtitle-checkbox') != 1){
+            $request->merge(array(
+                'subtitle' =>  null
+            ));
+        }
 
-        if($validator->fails()) {
-            return redirect(route('cms-modules-show', $id))->withErrors($validator->messages())->withInput();        
-        } 
+        if($request->input('featured-checkbox') != 1){
+            $request->merge(array(
+                'featured' =>  null
+            ));
+        }
+
+        if($request->input('category-checkbox') != 1){
+            $request->merge(array(
+                'category' =>  null
+            ));
+        }
+
+        if($request->input('featured_image-checkbox') != 1){
+            $request->merge(array(
+                'featured_image' =>  null
+            ));
+        }
+
+        if($request->input('title-checkbox') != 1){
+            $request->merge(array(
+                'title' =>  null
+            ));
+        }
+
+        if($request->input('title-checkbox') != 1){
+            $request->merge(array(
+                'title' =>  null
+            ));
+        }
+
+        if($request->input('title-checkbox') != 1){
+            $request->merge(array(
+                'title' =>  null
+            ));
+        }
+
+        if($request->input('title-checkbox') != 1){
+            $request->merge(array(
+                'title' =>  null
+            ));
+        }
+
+        if($request->input('title-checkbox') != 1){
+            $request->merge(array(
+                'title' =>  null
+            ));
+        }
 
         try {
-           
-            Modules::find($id)->update($request->except(["image", "banner"]));
+
+            Modules::find($id)->update($request->all());
             $request->session()->flash('alert', array('code'=> 'success', 'text'  => 'Operação realizada com sucesso!'));
         } catch (Exception $e) {
             $request->session()->flash('alert', array('code'=> 'error', 'text'  => $e));
         }
-       
+
         return redirect(route('cms-modules'));
     }
 
@@ -157,7 +191,7 @@ class ModulesController extends CmsController
         } catch (Exception $e) {
             $request->session()->flash('alert', array('code'=> 'error', 'text'  => $e));
         }
-       
+
         return redirect(route('cms-modules'));
     }
 }
