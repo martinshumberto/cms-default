@@ -14,14 +14,16 @@
                             <i class="mdi mdi-arrange-send-backward"></i> Páginas
                         </a>
 
+                        @foreach($pages as $value) 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href=""> Página 1</a>
+                                <a class="nav-link" href="{!!route('cms-contents', $value->modules_id)!!}">{!!$value->module!!}</a>
                             </li>
                         </ul>
+                        @endforeach
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link " href="#">
+                        <a class="nav-link " href="{!!route('cms-categories')!!}">
                             <i class="mdi  mdi-apps"></i> Categorias
                         </a>
                     </li>
@@ -32,7 +34,7 @@
 
                             <ul class="nav-dropdown-items">                            
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../../contents/pages/pages-login.html"> Anuncios</a>
+                                    <a class="nav-link" href="{!!route('cms-adverts')!!}"> Anuncios</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="../../contents/pages/pages-login.html"> Enquetes</a>
@@ -52,7 +54,7 @@
                                         <a class="nav-link" href="{!!route('cms-settings-site')!!}"> Site</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../../contents/pages/pages-login.html"> Usuários</a>
+                                        <a class="nav-link" href="{!!route('cms-users')!!}"> Usuários</a>
                                     </li>
                                 </ul>
                             </li>
@@ -73,10 +75,10 @@
                                 <li class="nav-item nav-dropdown ">
                                     <a class="nav-link " href="#">
                                         <i class="mdi mdi-ticket-account"></i> Suporte
-                                        <span class="badge badge-main badge-boxed badge-warning">Novo</span>
+                                        <span class="badge badge-main badge-boxed badge-warning">Em Breve</span>
                                     </a>
                                 </li>
-
+                                @if(Auth::user()->type == 1)
                                 <li class="nav-title">
                                     Administração Consilio
                                 </li>
@@ -89,7 +91,8 @@
                                     <a class="nav-link " href="{!!route('cms-settings-system')!!}">
                                         <i class="mdi mdi-settings-box"></i> Sistema                                        
                                     </a>
-                                </li>                             
+                                </li> 
+                                @endif                            
 
                             </ul>
                         </nav>

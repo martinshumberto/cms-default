@@ -10,6 +10,7 @@ use Auth;
 
 # Global Definitions
 use App\Model\Definitions;
+use App\Model\Modules;
 
 class CmsController extends Controller
 {

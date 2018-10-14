@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Artesaos\Defender\Traits\HasDefender;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Carbon\Carbon;
 
 
 class Users extends Authenticatable 
@@ -13,7 +14,7 @@ class Users extends Authenticatable
     protected $table      = "users";
 	protected $primaryKey = 'users_id';
 	protected $fillable   = 
-    ['type', 'first_name', 'last_name','birth', 'email', 'login', 'password','user_insert','date_insert','user_update','date_update','last_acess','photo', 'status', 'remember_token', 'created_at', 'updated_at'];
+    ['type', 'first_name', 'last_name','birth', 'email', 'login', 'password','last_acess','photo', 'status', 'remember_token', 'created_at', 'updated_at'];
 
 	protected $hidden = [
         'password', 'remember_token',
@@ -35,4 +36,31 @@ class Users extends Authenticatable
             break;
         }
     }
+
+    public function nivel()
+    {   
+        switch ($this->type) { 
+            case '1':
+                return 'Admin. do Sistema';
+            break;
+            case '2':
+                return 'Admin. do Site';
+            break;
+            case '3':
+                return 'Usuário do Site';
+            break;
+        }
+    }
+
+
+    public function getBirthAttribute($birth)
+    {
+        return Carbon::createFromFormat('Y-m-d', $birth)->format('d/m/Y');
+    }
+
+    public function setBirthAttribute($birth)
+    {
+        $this->attributes['birth'] = Carbon::createFromFormat('d/m/Y', $birth)->format('Y-m-d');
+    }
+
 }

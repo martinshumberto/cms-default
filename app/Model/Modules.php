@@ -35,4 +35,19 @@ class Modules extends Model
         return $this->hasOne('App\Model\Users', 'update_users_id', 'users_id');
     }
 
+    public function content()
+    {
+        return $this->hasMany('App\Model\Contents', 'modules_id', 'modules_id');
+    }
+
+    public function categories()
+    {
+        return $this->hasMany('App\Model\Categories', 'modules_id', 'modules_id');
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany('App\Model\Gallery', 'modules_id', 'modules_id');
+    }
+
 }

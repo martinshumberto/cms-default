@@ -310,7 +310,7 @@
             <li class="nav-item dropdown">
                 <a class="btn btn-round btn-theme btn-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 
-                    <span class="">Wallace
+                    <span class="">{!!@Auth::user()->first_name!!}
                         <i class="fa fa-arrow-down"></i>
                     </span>
                 </a>
@@ -318,21 +318,19 @@
                     <div class="wrap">
                         <div class="dw-user-box">
                             <div class="u-img">
-                                <img src="http://via.placeholder.com/100x100" alt="user" />
+                                {!!img(@Auth::user()->photo, 100, 100, true, true)!!}
                             </div>
                             <div class="u-text">
-                                <h5>Wallace Fontes</h5>
-                                <p class="text-muted">wallace@consilio.com.br</p>
+                                <h5>{!!@Auth::user()->first_name." ".@Auth::user()->last_name!!}</h5>
+                                <p class="text-muted">{!!@Auth::user()->email!!}</p>
                             </div>
                         </div>
                         <!-- end dw-user-box -->
 
-                        <a class="dropdown-item" href="#">
-                            <i class="fa fa-wrench"></i> Configurações</a>
 
                         <div class="divider"></div>
 
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{!!route('cms-auth-forgot')!!}">
                             <i class="fa fa-lock"></i> Sair</a>
                     </div>
                     <!-- end wrap -->

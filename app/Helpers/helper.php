@@ -1,5 +1,12 @@
 <?php
 
+// include composer autoload
+require __DIR__.'/../../vendor/autoload.php';
+
+// import the Intervention Image Manager Class
+use Intervention\Image\ImageManagerStatic as Image;
+
+
 if (!function_exists('human_file_size')) {
     /**
      * Returns a human readable file size
@@ -242,3 +249,484 @@ if(!function_exists('getName')){
         return array_shift($reabitt);
     }
 }
+
+
+if(!function_exists('anti_sql_injection')){
+
+  function anti_sql_injection($sql) {
+        $seg = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"), "", $sql); 
+        $seg = trim($seg);
+        $seg = strip_tags($seg); 
+        $seg = addslashes($seg); 
+        return $seg;
+    }
+}
+
+if(!function_exists('limita_caracteres')){
+
+function limita_caracteres($texto, $limite, $quebra = true) {
+    $tamanho = strlen($texto);
+    if ($tamanho <= $limite) {
+        $novo_texto = $texto;
+    } else {
+        if ($quebra == true) {
+            $novo_texto = trim(substr($texto, 0, $limite)) . '...';
+        } else {
+            $ultimo_espaco = strrpos(substr($texto, 0, $limite), ' ');
+            $novo_texto = trim(substr($texto, 0, $ultimo_espaco)) . '...';
+        }
+    }
+    return $novo_texto;
+}
+}
+if ( ! function_exists('is_external_url'))
+{
+    function is_external_url($url)
+    {
+        if ( ! is_string($url))
+        {
+            return FALSE;
+        }
+
+        $external_url = parse_url($url);
+        $internal_url = parse_url(url("/"));
+
+        return isset($external_url['host']) && $external_url['host'] !== $internal_url['host'];
+    }
+}
+
+
+
+if ( ! function_exists('img_src'))
+{
+    function img_src()
+    {
+        $args  = func_get_args();
+        $types = array_map(function($arg) {
+            return gettype($arg);
+        }, $args);
+
+        // Defaults options
+        $options = array(
+            'dynamic'   => FALSE,
+            'thumbnail' => FALSE,
+            'width'     => 'auto',
+            'height'    => 'auto'
+        );
+
+        switch (implode('|', $types))
+        {
+            // ARGS: src
+            case 'string':
+                $url = $args[0];
+            break;
+
+            // ARGS: width
+            case 'integer':
+                $options['width'] = $args[0];
+            break;
+
+            // ARGS: src, attributes
+            case 'string|array':
+                $url     = $args[0];
+                $options = $args[1] + $options;
+            break;
+
+            // ARGS: src, dynamic
+            case 'string|boolean':
+                $url                = $args[0];
+                $options['dynamic'] = $args[1];
+            break;
+
+            // ARGS: src, width
+            case 'string|integer':
+                $url              = $args[0];
+                $options['width'] = $args[1];
+            break;
+
+            // ARGS: width, height
+            case 'integer|integer':
+                $options['width']  = $args[0];
+                $options['height'] = $args[1];
+            break;
+
+            // ARGS: src, width, dynamic
+            case 'string|integer|boolean':
+                $url                = $args[0];
+                $options['width']   = $args[1];
+                $options['dynamic'] = $args[2];
+            break;
+
+            // ARGS: src, width, height
+            case 'string|integer|integer':
+                $url               = $args[0];
+                $options['width']  = $args[1];
+                $options['height'] = $args[2];
+            break;
+
+            // ARGS: src, width, height, dynamic
+            case 'string|integer|integer|boolean':
+                $url                = $args[0];
+                $options['width']   = $args[1];
+                $options['height']  = $args[2];
+                $options['dynamic'] = $args[3];
+            break;
+
+            // ARGS: src, width, dynamic, thumbnail
+            case 'string|integer|boolean|boolean':
+                $url                  = $args[0];
+                $options['width']     = $args[1];
+                $options['dynamic']   = $args[2];
+                $options['thumbnail'] = $args[3];
+            break;
+
+            // ARGS: src, width, height, dynamic, thumbnail
+            case 'string|integer|integer|boolean|boolean':
+                $url                  = $args[0];
+                $options['width']     = $args[1];
+                $options['height']    = $args[2];
+                $options['dynamic']   = $args[3];
+                $options['thumbnail'] = $args[4];
+            break;
+
+            default:
+                return;
+        }
+
+        if ($url == "")
+        {
+            $placeholder = "//placehold.it/";
+            
+            if (isset($options['width']))
+            {
+                $placeholder .= "{$options['width']}";
+            }else {
+                $placeholder .= "400";
+            }
+
+            if (isset($options['height']))
+            {
+                $placeholder .= "x{$options['height']}";
+            }else {
+                $placeholder .= "x400";
+            }
+
+            return $placeholder;
+        }
+
+        // If is an external URL, so we've done
+        if (is_external_url($url))
+        {
+            return $url;
+        }
+
+        $path = ($options['dynamic'] ? '/public/storage/files/' : '/public/img/');
+
+
+        if ($options['thumbnail'])
+        {
+            $path .= 'cache/';
+            $size  = array('auto', 'auto'); // width, height
+
+            if ($options['width'] !== NULL)
+            {
+                $size[0] = $options['width'];
+            }
+
+            if ($options['height'] !== NULL)
+            {
+                $size[1] = $options['height'];
+            }
+
+            $path .= implode('x', $size) . '/';
+        }
+
+        $path      .= ($options['dynamic']) ? $url : "{$url}";
+
+        $path_uris = explode("/", $path);
+        $file      = end($path_uris);         
+        unset($path_uris[key($path_uris)]);
+        unset($path_uris[0]);
+        $path_temp =  implode("/", $path_uris);
+
+        if(!file_exists($path_temp."/".$file) && file_exists(str_replace("cache/".implode('x', $size)."/", "", $path_temp."/".$file))) {
+
+            list($widthImage, $heightImage, $typeImage, $attrImage) = getimagesize(str_replace("cache/".implode('x', $size)."/", "", $path_temp."/".$file));
+
+            if ($widthImage > 1900)
+            {           
+                $image = Image::make((isset($size)) ? str_replace("cache/".implode('x', $size)."/", "", $path_temp."/".$file) : $path_temp."/".$file);
+
+                $image->resize(1900, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save((isset($size)) ? str_replace("cache/".implode('x', $size)."/", "", $path_temp."/".$file) : $path_temp."/".$file, 75);
+            }       
+
+            if (!file_exists($path_temp))
+            {
+                mkdir($path_temp, 0777, true);
+            }
+
+            $image = Image::make((isset($size)) ? str_replace("cache/".implode('x', $size)."/", "", $path_temp."/".$file) : $path_temp."/".$file)->fit(($size[0] == "auto") ? null : $size[0], ($size[1] == "auto") ? null : $size[1]);
+            $image->save($path_temp."/".$file);
+        }
+
+        return url("/").$path;
+    }
+
+
+    if ( ! function_exists('html_tag'))
+    {
+        function html_tag()
+        {
+            $args  = func_get_args();
+            $types = array_map(function($arg) {
+                return gettype($arg);
+            }, $args);
+
+            // Default options
+            $name    = reset($args);
+            $content = NULL;
+            $close   = FALSE;
+            $options = array();
+
+            switch (implode('|', $types))
+            {
+                // ARGS: name
+                case 'string':
+                break;
+
+                // ARGS: name, content
+                case 'string|string':
+                    $content = $args[1];
+                    $close   = TRUE;
+                break;
+
+                // ARGS: name, close
+                case 'string|boolean':
+                    $close = $args[1];
+                break;
+
+                // ARGS: name, options
+                case 'string|array':
+                    $options = $args[1];
+                break;
+
+                // ARGS: name, content, options
+                case 'string|string|array':
+                    $content = $args[1];
+                    $options = $args[2];
+                    $close   = TRUE;
+                break;
+
+                // ARGS: name, close, options
+                case 'string|boolean|array':
+                    $close   = $args[1];
+                    $options = $args[2];
+                break;
+
+                default:
+                    return NULL;
+            }
+
+            $tag = "<{$name}";
+            
+
+            foreach ($options as $option => $value)
+            {
+                $tag .= " {$option}";
+
+                if ( ! is_null($value))
+                {
+                    $tag .= "=\"{$value}\"";
+                }
+            }
+
+            if (isset($options['src']) && !is_external_url($options['src'])) {
+
+                $file = str_replace("/public/", "public/", str_replace(array(url("/"), ""), "", $options['src']));
+                
+                if (file_exists($file)) {
+                    
+                    list($widthImage, $heightImage, $typeImage, $attrImage) = getimagesize($file);
+
+                    $tag .= " width={$widthImage} height={$heightImage}";
+                }
+            }
+
+            $tag .= ">";
+
+            if ($close || ! is_null($content))
+            {
+                $tag .= $content;
+                $tag .= "</{$name}>";
+            }
+            return $tag;
+        }
+    }
+    
+    if ( ! function_exists('img'))
+    {
+        function img()
+        {
+            $args  = func_get_args();
+            $types = array_map(function($arg) {
+                return gettype($arg);
+            }, $args);
+
+            // Defaults options
+            $width   = $height    = NULL;
+            $dynamic = $thumbnail = FALSE;
+            $options = array();
+
+            switch (implode('|', $types))
+            {
+                // ARGS: src
+                case 'string':
+                    $src = $args[0];
+                break;
+
+                // ARGS: width
+                case 'integer':
+                    $width = $args[0];
+                break;
+
+                // ARGS: src, attributes
+                case 'string|array':
+                    $src     = $args[0];
+                    $options = $args[1];
+                break;
+
+                // ARGS: src, dynamic
+                case 'string|boolean':
+                    $src     = $args[0];
+                    $dynamic = $args[1];
+                break;
+
+                // ARGS: src, width
+                case 'string|integer':
+                    $src   = $args[0];
+                    $width = $args[1];
+                break;
+
+                // ARGS: width, height
+                case 'integer|integer':
+                    $width  = $args[0];
+                    $height = $args[1];
+                break;
+
+                // ARGS: src, width, dynamic
+                case 'string|integer|boolean':
+                    $src     = $args[0];
+                    $width   = $args[1];
+                    $dynamic = $args[2];
+                break;
+
+                // ARGS: src, dynamic, attributes
+                case 'string|boolean|array':
+                    $src     = $args[0];
+                    $dynamic = $args[1];
+                    $options = $args[2];
+                break;
+
+                // ARGS: src, width, attributes
+                case 'string|integer|array':
+                    $src     = $args[0];
+                    $width   = $args[1];
+                    $options = $args[2];
+                break;
+
+                // ARGS: src, width, height
+                case 'string|integer|integer':
+                case 'string|integer|string':
+                case 'string|string|integer':
+                    $src    = $args[0];
+                    $width  = $args[1];
+                    $height = $args[2];
+                break;
+
+                // ARGS: src, width, dynamic, attributes
+                case 'string|integer|boolean|array':
+                    $src     = $args[0];
+                    $width   = $args[1];
+                    $dynamic = $args[2];
+                    $options = $args[3];
+                break;
+
+                // ARGS: src, width, height, attributes
+                case 'string|integer|integer|array':
+                case 'string|integer|string|array':
+                case 'string|string|integer|array':
+                    $src     = $args[0];
+                    $width   = $args[1];
+                    $height  = $args[2];
+                    $options = $args[3];
+                break;
+
+                // ARGS: src, width, height, dynamic
+                case 'string|integer|integer|boolean':
+                case 'string|integer|string|boolean':
+                case 'string|string|integer|boolean':
+                    $src     = $args[0];
+                    $width   = $args[1];
+                    $height  = $args[2];
+                    $dynamic = $args[3];
+                break;
+
+                // ARGS: src, width, dynamic, thumbnail
+                case 'string|integer|boolean|boolean':
+                    $src       = $args[0];
+                    $width     = $args[1];
+                    $dynamic   = $args[2];
+                    $thumbnail = $args[3];
+                break;
+
+                // ARGS: src, width, height, dynamic, thumbnail
+                case 'string|integer|integer|boolean|boolean':
+                case 'string|integer|string|boolean|boolean':
+                case 'string|string|integer|boolean|boolean':
+                    $src       = $args[0];
+                    $width     = $args[1];
+                    $height    = $args[2];
+                    $dynamic   = $args[3];
+                    $thumbnail = $args[4];
+                break;
+
+                // ARGS: src, width, height, dynamic, thumbnail, attributes
+                case 'string|integer|integer|boolean|boolean|array':
+                case 'string|integer|string|boolean|boolean|array':
+                case 'string|string|integer|boolean|boolean|array':
+                    $src       = $args[0];
+                    $width     = $args[1];
+                    $height    = $args[2];
+                    $dynamic   = $args[3];
+                    $thumbnail = $args[4];
+                    $options   = $args[5];
+                break;
+            }
+
+            $options = array('src' => '') + $options; // Unshift src to the array
+
+            if (!$thumbnail && $width !== NULL && strtolower($width) !== 'auto')
+            {
+                $options['width'] = $width;
+            }
+
+            if (!isset($src) || $args[0] == "")
+            {
+                $src = "";
+            }
+
+            $options['src'] = img_src($src, array(
+                'width'     => $width,
+                'height'    => $height,
+                'dynamic'   => $dynamic,
+                'thumbnail' => $thumbnail
+            ));
+
+            return html_tag('img', $options);
+        }
+    }
+}
+

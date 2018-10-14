@@ -1,8 +1,5 @@
 //////////////////////////////////////////////////////
-//  Template Name: octAdmin
-//  Author: octathemes
-//  Email: octathemes@gmail.com
-//  File: bootstrap-form-validation.js
+
 ///////////////////////////////////////////////////
 
 
@@ -11,7 +8,7 @@
     'use strict';
 
     window.addEventListener('load', function () {
-        var form = document.getElementById('needs-validation');
+        var form = document.getElementById('validation');
         form.addEventListener('submit', function (event) {
             if (form.checkValidity() === false) {
                 event.preventDefault();

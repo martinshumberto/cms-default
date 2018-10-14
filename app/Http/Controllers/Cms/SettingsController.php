@@ -15,6 +15,7 @@ use App\Model\Definitions;
 use App\Model\Site;
 use App\Model\States;
 use App\Model\Cities;
+use App\Model\Modules;
 
 class SettingsController extends Controller
 {
@@ -22,10 +23,13 @@ class SettingsController extends Controller
 
 	public function system()
 	{	
+
+ 		$modules = Modules::where('status', '1')->get();
 		$definitions = Definitions::first();
 
 		return view("cms/pages/settings/system", array(			
 			"definitions" => $definitions,
+			"pages" => $modules,
 		));
 	}
 
@@ -79,11 +83,15 @@ class SettingsController extends Controller
 		$site = Site::first();
 		$states = States::where('status', TRUE)->get();
 		$cities = Cities::where("states_id", $site->states_id)->get();
+
+
+ 		$modules = Modules::where('status', '1')->get();
 		
 		return view("cms/pages/settings/site", array(			
 			"site" => $site,
 			"states" => $states,
 			"cities" => $cities,
+			"pages" => $modules,
 		));
 	}
 

@@ -5,7 +5,7 @@
 <!-- Breadcrumb -->
 <ol class="breadcrumb bc-colored bg-theme" id="breadcrumb">
 	<li class="breadcrumb-item ">
-		<a href="">Home</a>
+		<a href="{!!route('cms-dashboard')!!}">Home</a>
 	</li>
 {{-- 	<li class="breadcrumb-item">
 		<a href="#">Layouts</a>
@@ -13,31 +13,32 @@
 	<li class="breadcrumb-item active">Modulos</li>
 </ol>
 
+
+
 <div class="container">
+	<!-- Alerts -->
+	@include('cms.layouts._alerts')
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card card-accent-theme">
 				<div class="card-body">
 					<div class="card-body">
-
+						{!! Form::open(['method' => 'get', 'autocomplete' => 'on', 'route' => ['cms-modules']]) !!}
 						<div class="row">
 
 							<div class="form-group col-sm-6">
-								<input type="text" class="form-control" id="city" placeholder="Titulo">
+								{!!Form::text('title', null, ['class' => 'form-control','placeholder' => 'Titulo']) !!}	
 							</div>
 
 							<div class="form-group col-sm-6">
-								<select id="select" name="select" class="form-control">
-									<option value="0">Status</option>
-									<option value="1">Ativo</option>
-									<option value="2">Inativo</option>
-								</select>
+								{!!Form::select('status', ['1' => 'Ativo',  '2' => 'Inativo'], null, ['class' => 'form-control', 'placeholder' => "Selecione"]) !!}	
 							</div>
 
 						</div>
 
 						<button type="submit" class="btn btn-theme btn-sm"><i class="fa fa-search"></i> Buscar</button>
 						<a href="{!!route('cms-modules-create')!!}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Novo</a>
+						{!! Form::close() !!}
 					</div>
 				</div>
 			</div>
@@ -50,7 +51,7 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th>ID</th>
+									<th width="10">ID</th>
 									<th>Módulo</th>
 									<th width="20">Status</th>
 									<th width="20">Editar</th>

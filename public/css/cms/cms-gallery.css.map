@@ -1,0 +1,1 @@
+{"version":3,"sources":["gallery.scss"],"names":[],"mappings":"AAAA;EAGE,oBAAmB;CACnB","file":"cms-gallery.css","sourcesContent":["#gallery{\r\n\r\n\t.item{\r\n\t\tmargin-bottom: 12px; \r\n\t}\r\n}"]}

@@ -23,10 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('login')->unique()->nullable();
             $table->string('password');
-            $table->integer('user_insert');
-            $table->date('date_insert');
-            $table->integer('user_update')->nullable();
-            $table->date('date_update')->nullable();
             $table->datetime('last_acess')->nullable();
             $table->string('photo');
             $table->integer('status')->unsigned();            

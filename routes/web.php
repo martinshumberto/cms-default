@@ -43,7 +43,49 @@ Route::group(['namespace' => 'Cms', 'prefix' => 'cms'], function() {
 		Route::get('modulos/{id}', array('as'                         => 'cms-modules-show', 'uses' => 'ModulesController@show', 'nickname' => "Visualizar Modulos"));
 		Route::put('modulos/{id}', array('as'                         => 'cms-modules-update', 'uses' => 'ModulesController@update', 'nickname' => "Atualizar Modulos"));
 		Route::get('modulos/excluir/{id}', array('as'                 => 'cms-modules-delete', 'uses' => 'ModulesController@destroy', 'nickname' => "Excluir Modulos"));
-		Route::get('modulos/status/{!id}/{!action}', array('as'         => 'cms-modules-status', 'uses' => 'ModulesController@status', 'nickname' => "Status de Modulos"));
+		Route::get('modulos/status/{id}/{action}', array('as'         => 'cms-modules-status', 'uses' => 'ModulesController@status', 'nickname' => "Status de Modulos"));
+
+
+
+		Route::get('pagina/{modules_id}', array('as'  => 'cms-contents', 'uses' => 'ContentsController@index', 'nickname' => "Listar Conteudo"));
+
+		Route::get('pagina/{modules_id}/novo', array('as' => 'cms-contents-create', 'uses' => 'ContentsController@create', 'nickname' => "Criar Conteudo"));
+		Route::post('pagina/{modules_id}/novo', array('as' => 'cms-contents-create', 'uses' => 'ContentsController@store', 'nickname' => "Criar Conteudo"));
+		Route::get('pagina/{modules_id}/{contents_id}', array('as' => 'cms-contents-show', 'uses' => 'ContentsController@show', 'nickname' => "Visualizar Conteudo"));
+		Route::put('pagina/{modules_id}/{contents_id}', array('as' => 'cms-contents-update', 'uses' => 'ContentsController@update', 'nickname' => "Atualizar Conteudo"));
+		Route::get('pagina/excluir/{modules_id}/{contents_id}', array('as' => 'cms-contents-delete', 'uses' => 'ContentsController@destroy', 'nickname' => "Excluir Conteudo"));
+		Route::get('pagina/status/{modules_id}/{contents_id}/{action}', array('as' => 'cms-contents-status', 'uses' => 'ContentsController@status', 'nickname' => "Status de Conteudo"));
+		Route::get('pagina/excluir/foto/{modules_id}/{contents_id}', array('as' => 'cms-contents-delete-photo', 'uses' => 'ContentsController@destroyPhoto', 'nickname' => "Excluir Conteudo"));
+
+
+
+		Route::get('galeria/{modules_id}/{contents_id}', array('as'  => 'cms-gallery', 'uses' => 'GalleryController@index', 'nickname' => "Listar Galeria"));
+		Route::post('galeria/{modules_id}/{contents_id}', array('as'  => 'cms-gallery-upload', 'uses' => 'GalleryController@upload', 'nickname' => "Listar Galeria"));
+		Route::get('galeria/{modules_id}/{contents_id}/{gallery_id}', array('as'  => 'cms-gallery-status', 'uses' => 'GalleryController@status', 'nickname' => "Status Galeria"));
+		Route::get('galeria/{modules_id}/{contents_id}/{gallery_id}/excluir', array('as'  => 'cms-gallery-delete', 'uses' => 'GalleryController@destroy', 'nickname' => "Excluir Galeria"));
+
+
+
+		Route::get('categorias', array('as' => 'cms-categories', 'uses' => 'CategoriesController@index', 'nickname' => "Listar Categorias"));
+		Route::get('categorias/novo', array('as' => 'cms-categories-create', 'uses' => 'CategoriesController@create', 'nickname' => "Criar Categorias"));
+		Route::post('categorias/novo', array('as' => 'cms-categories-create', 'uses' => 'CategoriesController@store', 'nickname' => "Criar Categorias"));
+		Route::get('categorias/{id}', array('as' => 'cms-categories-show', 'uses' => 'CategoriesController@show', 'nickname' => "Visualizar Categorias"));
+		Route::put('categorias/{id}', array('as' => 'cms-categories-update', 'uses' => 'CategoriesController@update', 'nickname' => "Atualizar Categorias"));
+		Route::get('categorias/excluir/{id}', array('as' => 'cms-categories-delete', 'uses' => 'CategoriesController@destroy', 'nickname' => "Excluir Categorias"));
+		Route::get('categorias/status/{id}/{action}', array('as' => 'cms-categories-status', 'uses' => 'CategoriesController@status', 'nickname' => "Status de Categorias"));
+
+		Route::get('usuarios', array('as' => 'cms-users', 'uses' => 'UsersController@index', 'nickname' => "Listar Usuários"));
+		Route::get('usuarios/novo', array('as' => 'cms-users-create', 'uses' => 'UsersController@create', 'nickname' => "Criar Usuários"));
+		Route::post('usuarios/novo', array('as' => 'cms-users-create', 'uses' => 'UsersController@store', 'nickname' => "Criar Usuários"));
+		Route::get('usuarios/{id}', array('as' => 'cms-users-show', 'uses' => 'UsersController@show', 'nickname' => "Visualizar Usuários"));
+		Route::put('usuarios/{id}', array('as' => 'cms-users-update', 'uses' => 'UsersController@update', 'nickname' => "Atualizar Usuários"));
+		Route::get('usuarios/excluir/{id}', array('as' => 'cms-users-delete', 'uses' => 'UsersController@destroy', 'nickname' => "Excluir Usuários"));
+		Route::get('usuarios/status/{id}/{action}', array('as' => 'cms-users-status', 'uses' => 'UsersController@status', 'nickname' => "Status de Usuários"));
+
+
+		Route::get('plugins/anuncios', array('as' => 'cms-adverts', 'uses' => 'AdvertsController@index', 'nickname' => "Listar Anuncios"));
+
+
 	});
 });
 

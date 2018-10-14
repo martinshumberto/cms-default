@@ -1,0 +1,1 @@
+{"version":3,"sources":["select2.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"cms-categories-create.js","sourcesContent":[";(function($){\r\n\r\n\tfunction Select2() {\r\n\r\n\t\t$('.select2').select2({});\r\n\t}\r\n\r\n\tnew Select2();\r\n\r\n}(jQuery));"]}
