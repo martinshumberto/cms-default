@@ -44,13 +44,11 @@ class DatabaseSeeder extends Seeder
                 'email'          => 'desenvolvimento@webflavia.com.br',
                 'login'          => 'admin',
                 'birth'          => '2018-01-01',
-                'user_insert'    => '1',
-                'date_insert'    => '2018-01-01',
                 'photo'          => 'default.jpg',
                 'status'         => '1',
                 'password'       => bcrypt('123123'),
                 'created_at'     => date('Y-m-d H:i:s'),
-                'updated_at'     => date('Y-m-d H:i:s')
+                'updated_at'     => date('Y-m-d H:i:s') 
             ]);
         }
 
