@@ -31,50 +31,15 @@
 
 <body>
 
-	<section class="container-server-errors">
-
-		<div class="brand-logo-dark float-left ">
-			<a class="" href="#">
-				<Strong>Consilio</Strong>
-			</a>
-		</div>
-
-		<div class="server-errors pages-card">
-			<div class="status-text-1">Oops!</div>
-			<div class="status-error text-theme hertbit">4 0 4</div>
-			<div class="text-center status-text-2 text-dark">404 PÁGINA NÃO ENCONTRADA</div>
-			<div class="small text-center text-dark"> A página ou recurso que tentou utilizar, não foi encontrado. </div>
-			<div class="text-center">
-				<a href="{!!url("/")!!}" class="btn  btn-theme login-btn text-white"> Acessar Página Inicial </a>
-			</div>
-
-			<div class="text-center">
-				<small>
-					{!!date('Y')!!}  404 Página Não Encontrada - Todos os direitos reservados
-				</small>
-			</div>
-		</div>
-		<!-- end server-error pages -->
-	</section>
-	<!-- end secton container -->
-
-	<div class="half-circle"></div>
-	<div class="small-circle"></div>
-	<div class="half-circle-bottom"></div>
-	<div class="small-circle-bottom"></div>
-
-	<div id="copyright">
-		<a href="//consilio.com.br" target="_blank" class="text-theme">Consilio</a> &copy; </div>
 
 
-		<!-- Libs -->
-		<script src="{{asset('public')}}/js/core/app-libs.css"></script>   
-		<!-- App --> 
-		<script src="{{asset('public')}}/js/core/app.css"></script>   
+
+	<script src="{{asset('public')}}/js/core/app-libs.css"></script>   
+	<script src="{{asset('public')}}/js/core/app.css"></script>   
 
 
 
 
-	</body>
+</body>
 
-	</html>
+</html>
