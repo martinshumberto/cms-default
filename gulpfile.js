@@ -42,12 +42,7 @@ elixir((mix) => {
 	/* SCSS Cms */
 	mix.sass('resources/assets/sass/cms/style.scss', 'public/css/cms/style.css');
 	mix.sass(['resources/assets/sass/cms/pages/home.scss'], 'public/css/cms/cms-dashboard.css');
-	mix.sass(['resources/assets/sass/cms/pages/settings-system.scss'], 'public/css/cms/cms-settings-system.css');
-	mix.sass(['resources/assets/sass/cms/pages/contents.scss'], 'public/css/cms/cms-contents-create.css');
-	mix.sass(['resources/assets/sass/cms/pages/contents.scss'], 'public/css/cms/cms-contents-show.css');
-	mix.sass(['resources/assets/sass/cms/pages/gallery.scss'], 'public/css/cms/cms-gallery.css');
-	mix.sass(['resources/assets/sass/cms/pages/users.scss'], 'public/css/cms/cms-users-create.css');
-	mix.sass(['resources/assets/sass/cms/pages/users.scss'], 'public/css/cms/cms-users-show.css');
+	
 
 	/* JS Libs Cms */
 	mix.scripts([
