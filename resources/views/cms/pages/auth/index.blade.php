@@ -27,7 +27,7 @@
 	<meta property="og:site_name" content="{{url("/")}}"/>
 	<!-- End meta tags -->
 
-	<!-- Start loading the favicon-->
+{{-- 	<!-- Start loading the favicon-->
 	<link rel="shortcut icon" href="{{asset('public')}}/favicon.png" type="image/png">
 
 	<!-- App Css -->
@@ -44,7 +44,7 @@
 			background: -moz-linear-gradient(left, #3867d6 50%, #fff 50%);
 			background: linear-gradient(left, #3867d6 50%, #fff 50%);
 		}
-	</style>
+	</style> --}}
 </head>
 
 <body>
@@ -127,12 +127,12 @@
 <div id="copyright"  ><a  href="//consilio.com.br" target="_blank" class="text-theme">Consilio</a> &copy; {!!date('Y')!!} todos os direitos reservados. </div>
 
 
-
+{{-- 
 <!-- Libs -->
 <script src="{{asset('public'.elixir('js/cms/app-libs.js'))}}"></script> 
 <!-- App -->
 <script src="{{asset('public'.elixir('js/cms/app.js'))}}"></script> 
-
+ --}}
 </body>
 
 </html>

@@ -2,114 +2,129 @@
 
 @section('content')	
 
-<!-- Breadcrumb -->
-<ol class="breadcrumb bc-colored bg-theme" id="breadcrumb">
-	<li class="breadcrumb-item ">
-		<a href="">Home</a>
-	</li>
-{{-- 	<li class="breadcrumb-item">
-		<a href="#">Layouts</a>
-	</li> --}}
-	<li class="breadcrumb-item active">Dashboard</li>
-</ol>
-
-<div class="container">
+<div class="page-breadcrumb">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card card-accent-success">
-						<div class="card-body">
-							<div class="clearfix">
-								<div class="float-right">
-									<div class="h2 text-success">1.0v</div>
-								</div>
+		<div class="col-5 align-self-center">
+			<h4 class="page-title">Starter Page</h4>
+		</div>
+		<div class="col-7 align-self-center">
+			<div class="d-flex align-items-center justify-content-end">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a href="#">Home</a>
+						</li>
+						<li class="breadcrumb-item active" aria-current="page">Starter Page</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+
+	<div class="card-group">
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="d-flex no-block align-items-center">
+							<div>
+								<i class="mdi mdi-emoticon font-20 text-muted"></i>
+								<p class="font-16 m-b-5">New Clients</p>
 							</div>
-							<div class="float-left">
-								<div class="h3 ">
-									<strong>Versão <i class="fa fa-code" aria-hidden="true"></i></strong>
-								</div>
-								<div class="h6 text-success"> ID: CL-0452 </div>
+							<div class="ml-auto">
+								<h1 class="font-light text-right">23</h1>
 							</div>
 						</div>
-						<!-- end card-body -->
 					</div>
-					<!-- end card -->
+					<div class="col-12">
+						<div class="progress">
+							<div class="progress-bar bg-info" role="progressbar" style="width: 75%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
 				</div>
-				<!-- end inside col -->
-				<div class="col-md-4">
-					<div class="card card-accent-warning">
-						<div class="card-body">
-							<div class="clearfix">
-								<div class="float-right">
-									<div class="h2 text-warning">10/10/2018</div>
-								</div>
+			</div>
+		</div>
+		<!-- Column -->
+		<!-- Column -->
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="d-flex no-block align-items-center">
+							<div>
+								<i class="mdi mdi-image font-20  text-muted"></i>
+								<p class="font-16 m-b-5">New Projects</p>
 							</div>
-							<div class="float-left">
-								<div class="h3 ">
-									<strong>Atualizado <i class="fa fa-refresh" aria-hidden="true"></i></strong>
-								</div>
-								<div class="h6 text-warning"> Ultima Atualização </div>
+							<div class="ml-auto">
+								<h1 class="font-light text-right">169</h1>
 							</div>
 						</div>
-						<!-- end card-body -->
 					</div>
-					<!-- end card -->
+					<div class="col-12">
+						<div class="progress">
+							<div class="progress-bar bg-success" role="progressbar" style="width: 60%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="card card-accent-primary">
-						<div class="card-body">
-							<div class="clearfix">
-								<div class="float-right">
-									<div class="h2 text-primary">Platina</div>
-								</div>
+			</div>
+		</div>
+		<!-- Column -->
+		<!-- Column -->
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="d-flex no-block align-items-center">
+							<div>
+								<i class="mdi mdi-currency-eur font-20 text-muted"></i>
+								<p class="font-16 m-b-5">New Invoices</p>
 							</div>
-							<div class="float-left">
-								<div class="h3 ">
-									<strong>Hospedagem <i class="fa fa-database" aria-hidden="true"></i></strong>
-								</div>
-								<div class="h6 text-primary"> <a href="#">Fazer Upgrade <i class="fa fa-caret-right" aria-hidden="true"></i></a> </div>
+							<div class="ml-auto">
+								<h1 class="font-light text-right">157</h1>
 							</div>
 						</div>
-						<!-- end card-body -->
 					</div>
-					<!-- end card -->
+					<div class="col-12">
+						<div class="progress">
+							<div class="progress-bar bg-purple" role="progressbar" style="width: 65%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Column -->
+		<!-- Column -->
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="d-flex no-block align-items-center">
+							<div>
+								<i class="mdi mdi-poll font-20 text-muted"></i>
+								<p class="font-16 m-b-5">New Sales</p>
+							</div>
+							<div class="ml-auto">
+								<h1 class="font-light text-right">236</h1>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="progress">
+							<div class="progress-bar bg-danger" role="progressbar" style="width: 70%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="row">
-		<div class="col-md-8">
-			<div class="card card-accent-theme">
+		<div class="col-12">
+			<div class="card">
 				<div class="card-body">
-					<h4 class="text-theme">Estatísticas de Acesso</h4>
-					<div id="morris-area-chart"></div>
-				</div>
-				<!-- end card-body -->
-			</div>
-			<!-- end card -->
-		</div>
-		<div class="col-md-4">
-			
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card card-accent-primary">
-						<div class="card-body">
-							<div class="clearfix">
-								<div class="float-right">
-									<div class="h2 text-primary">Platina</div>
-								</div>
-							</div>
-							<div class="float-left">
-								<div class="h3 ">
-									<strong>Hospedagem <i class="fa fa-database" aria-hidden="true"></i></strong>
-								</div>
-								<div class="h6 text-primary"> <a href="#">Fazer Upgrade <i class="fa fa-caret-right" aria-hidden="true"></i></a> </div>
-							</div>
-						</div>
-						<!-- end card-body -->
-					</div>
-					<!-- end card -->
+					This is some text within a card block.
 				</div>
 			</div>
 		</div>

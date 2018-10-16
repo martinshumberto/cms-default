@@ -31,49 +31,49 @@
 
 </head>
 
-<body class="app sidebar-fixed aside-menu-off-canvas aside-menu-hidden header-fixed">
-    @include('cms.layouts._header')
-    <!-- end header -->
 
-    <div class="app-body">
 
-        @include('cms.layouts._sidebar')
-        <!-- end sidebar -->
-
-        <main class="main"> 
-            @yield('content')
-        </main>
-        <!-- end main -->
-
-        <!-- end aside -->
-
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
     </div>
-    <!-- end app-body -->
 
+    <div id="main-wrapper">
+        <!-- Header -->
+        @include('cms.layouts._header')
+        <!-- Sidebar -->
+        @include('cms.layouts._sidebar')
 
+        <div class="page-wrapper">
+            <!-- Content -->
+            @yield('content')
 
-    <footer class="app-footer">
-        <a href="//consilio.com.br" target="_blank" class="text-theme">Consilio</a> &copy; {!!date('Y')!!} todos os direitos reservados.
-    </footer>
+            <!-- Footer -->
+            @include('cms.layouts._footer')
+        </div>
+    </div>
 
     <input type="hidden" name="app_url" id="app_url" value="{!!url("/")!!}">
     <input type="hidden" name="app_hash" id="app_hash" value="{!!criptBySystem(Auth::user()->users_id)!!}">
 
     <!-- Libs -->
-    <script src="{{asset('public'.elixir('js/cms/app-libs.js'))}}"></script> 
+    <script src="{{asset('public')}}/js/cms/app-libs.js"></script> 
+
     @if (file_exists("public/js/cms/".Route::currentRouteName()."-libs.js"))
     <script src="{{asset('public'.elixir('js/cms/'.Route::currentRouteName().'-libs.js'))}}"></script> 
     @endif
 
 
     <!-- App -->
-    <script src="{{asset('public'.elixir('js/cms/app.js'))}}"></script> 
+    <script src="{{asset('public')}}/js/cms/app.js"></script> 
     @if (file_exists("public/js/cms/".Route::currentRouteName().".js"))
     <script src="{{asset('public'.elixir('js/cms/'.Route::currentRouteName().'.js'))}}" async></script>   
     @endif
 
-
-
 </body>
 
 </html>
+
