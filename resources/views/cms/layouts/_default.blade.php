@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" itemscope itemtype="http://schema.org/WebPage">
+<html dir="ltr" lang="pt-BR" itemscope itemtype="http://schema.org/WebPage">
 <head>
     <!--  Start meta tags -->    
     <title>{{Config::get('app.appTitle')}}</title>

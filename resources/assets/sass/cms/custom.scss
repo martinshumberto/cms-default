@@ -1,1 +1,17 @@
 // In this scss you can overwrite all our scss, we suggested you to add your scss into this, so whenever the update comes it will not affect your code.
+.bg-gradient-purple {
+    background: linear-gradient(45deg, #635bd6, #f742aa) !important;
+    color: #fff !important;
+}
+.bg-gradient-green {
+    background: linear-gradient(45deg, #45c0ba, #76c880) !important;
+    color: #fff !important;
+}
+.bg-gradient-orange {
+	background: linear-gradient(45deg, #f16e3c, #e3c94b) !important;
+    color: #fff !important;
+}
+.bg-gradient-blue {
+	background: linear-gradient(45deg, #705be1, #52d8c6) !important;
+    color: #fff !important;
+}
