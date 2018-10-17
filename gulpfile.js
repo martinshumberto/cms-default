@@ -67,16 +67,18 @@ elixir((mix) => {
 	// # JS PAGES
 	// ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
 
-	// mix.scripts([
-	// 	'resources/assets/js/cms/libs/owl.carousel/dist/owl.carousel.min.js',
-	// 	], 'public/js/cms/cms-dashboard-libs.js'); 
+	mix.scripts([
+		'resources/assets/js/libs/chartist/dist/chartist.min.js',
+		'resources/assets/js/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js',
+		'resources/assets/js/libs/sparkline.js',
+		], 'public/js/cms/cms-dashboard-libs.js'); 
 
 
 	// // ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
 
-	// mix.scripts([
-	// 	'resources/assets/js/cms/charts-morris-chart-example.js',
-	// 	], 'public/js/cms/cms-dashboard.js'); 
+	mix.scripts([
+		'resources/assets/js/cms/modules/graphs_dashboard.js',
+		], 'public/js/cms/cms-dashboard.js'); 
 
 
 

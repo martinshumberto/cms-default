@@ -159,7 +159,37 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body">
-					This is some text within a card block.
+					<div class="row">
+                        <div class="col-12">
+                            <ul class="list-inline float-right">
+                                <li class="list-inline-item">
+                                    <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-success"></i>Product A</h6> </li>
+                                <li class="list-inline-item">
+                                    <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-info"></i>Product B</h6> </li>
+                            </ul>
+                            <h4 class="card-title">Revenue Statistics</h4>
+                            <h5 class="card-subtitle">January 2017</h5>
+                        </div>
+                        <div class="col-12 m-t-20 revenue">
+                            <div class="total-revenue4" style="height: 350px;"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                            <h1 class="m-b-0 font-light">$54578</h1>
+                            <h6 class="text-muted">Total Revenue</h6>
+                        </div>
+                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                            <h1 class="m-b-0 font-light">$43451</h1>
+                            <h6 class="text-muted">Online Revenue</h6>
+                        </div>
+                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                            <h1 class="m-b-0 font-light">$44578</h1>
+                            <h6 class="text-muted">Product A</h6>
+                        </div>
+                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
+                            <h1 class="m-b-0 font-light">$12578</h1>
+                            <h6 class="text-muted">Product B</h6>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>
