@@ -38,7 +38,7 @@ elixir((mix) => {
 
 	/* SCSS Cms */
 	mix.sass('resources/assets/sass/cms/style.scss', 'public/css/cms/style.css');
-	//mix.sass(['resources/assets/sass/cms/pages/home.scss'], 'public/css/cms/cms-dashboard.css');
+	mix.sass(['resources/assets/sass/cms/pages/dashboard.scss'], 'public/css/cms/cms-dashboard.css');
 
 
 	/* JS Libs Cms */
