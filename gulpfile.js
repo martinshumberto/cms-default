@@ -40,6 +40,7 @@ elixir((mix) => {
 	mix.sass('resources/assets/sass/cms/style.scss', 'public/css/cms/style.css');
 	mix.sass(['resources/assets/sass/cms/pages/dashboard.scss'], 'public/css/cms/cms-dashboard.css');
 	mix.sass(['resources/assets/sass/cms/pages/contents.scss'], 'public/css/cms/cms-contents.css');
+	mix.sass(['resources/assets/sass/cms/pages/modules.scss'], 'public/css/cms/cms-modules.css');
 
 
 	/* JS Libs Cms */
@@ -74,6 +75,7 @@ elixir((mix) => {
 		], 'public/js/cms/cms-dashboard-libs.js'); 
 
 	mix.scripts([
+		'resources/assets/js/libs/jquery-steps/build/jquery.steps.min.js',
 		'resources/assets/js/libs/ckeditor/ckeditor.js',
 		], 'public/js/cms/cms-contents-libs.js'); 	
 
