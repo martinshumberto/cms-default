@@ -1,154 +1,172 @@
 @extends('cms.layouts._default')
 
-@section('content')	
+@section('content') 
 
-<!-- Breadcrumb -->
-<ol class="breadcrumb bc-colored bg-theme" id="breadcrumb">
-	<li class="breadcrumb-item ">
-		<a href="{!!route('cms-dashboard')!!}">Home</a>
-	</li>
-{{-- 	<li class="breadcrumb-item">
-		<a href="#">Layouts</a>
-	</li> --}}
-	<li class="breadcrumb-item active">Página {!!$module->module!!}</li>
-</ol>
-
-
-
-<div class="container">
-	<!-- Alerts -->
-	@include('cms.layouts._alerts')
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card card-accent-theme">
-				<div class="card-body">
-					<div class="card-body">
-						{!! Form::open(['method' => 'get', 'autocomplete' => 'on', 'route' => ['cms-contents', $module->modules_id]]) !!}
-						<div class="row">
-
-							<div class="form-group col-sm-6">
-								{!!Form::text('title', null, ['class' => 'form-control','placeholder' => 'Titulo']) !!}	
-							</div>
-
-							<div class="form-group col-sm-6">
-								{!!Form::select('status', ['1' => 'Ativo',  '2' => 'Inativo'], null, ['class' => 'form-control', 'placeholder' => "Selecione"]) !!}	
-							</div>
-
-						</div>
-
-						<button type="submit" class="btn btn-theme btn-sm"><i class="fa fa-search"></i> Buscar</button>
-						<a href="{!!route('cms-contents-create', $module->modules_id)!!}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Novo</a>
-						{!! Form::close() !!}
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-12">
-			<div class="card card-accent-theme">
-				<div class="card-body">
-					<h5 class="text-theme">Listagem de Conteudo</h5>
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th width="10">ID</th>
-
-									@if(!empty($module->title))
-									<th>{!!$module->title!!}</th>
-									@endif
-
-									@if(!empty($module->category))
-									<th>{!!$module->category!!}</th>
-									@endif
-
-									<th>Cadastrado em</th>
-									
-									@if(!empty($module->image_gallery))
-									<th>Fotos</th>
-									@endif
-
-									@if(!empty($module->file_gallery))
-									<th>Arquivos</th>
-									@endif
-
-									<th width="20">Status</th>
-									<th width="20">Editar</th>
-									<th width="20">Excluir</th>
-								</tr>
-							</thead>
-							<tbody>
-								@foreach($contents as $value)
-								<style type="text/css">
-								.card .btn{
-									margin: 0;
-								}
-							</style>
-							<tr>
-								<td>{!!$value->contents_id!!}</td>
-
-								@if(!empty($module->title))
-								<td>{!!limita_caracteres($value->title, 60)!!}</td>
-								@endif
-
-								@if(!empty($module->category))
-								<td>{!!$value->categorie->title!!}</td>
-								@endif
-
-								<td>
-									<i class="fa fa-calendar-o" aria-hidden="true"></i> {!!extractDate($value->created_at)!!} às 
-									<i class="fa fa-clock-o" aria-hidden="true"></i> {!!extrateHour($value->created_at)!!}
-								</td>	
-
-								@if(!empty($module->image_gallery))							
-								<td>
-									<a href="{!!route('cms-gallery',  array($module->modules_id, $value->contents_id))!!}" class="btn btn-theme ">
-										<i class="fa fa-photo" aria-hidden="true"></i>
-									</a>
-								</td>
-								@endif
-
-								@if(!empty($module->file_gallery))									
-								<td>
-									<a href="{!!route('cms-contents-update',  array($module->modules_id, $value->contents_id))!!}" class="btn btn-theme ">
-										<i class="fa fa-file-o" aria-hidden="true"></i>
-									</a>
-								</td>
-								@endif
-
-								<td>
-									@if($value->status == 1)
-									<a href="{!!route('cms-contents-status', array($module->modules_id , $value->contents_id, "desativar"))!!}" class="btn btn-theme ">
-										{!!$value->status()!!}
-									</a>
-									@elseif($value->status == 2)
-									<a href="{!!route('cms-contents-status', array($module->modules_id , $value->contents_id, "ativar"))!!}" class="btn btn-theme ">
-										{!!$value->status()!!}
-									</a>
-									@endif
-								</td>
-								<td>
-									<a href="{!!route('cms-contents-update',  array($module->modules_id, $value->contents_id))!!}" class="btn btn-theme ">
-										<i class="fa fa-pencil" aria-hidden="true"></i>
-									</a>
-								</td>
-								<td>
-									<a href="{!!route('cms-contents-delete', array($module->modules_id, $value->contents_id))!!}" class="btn btn-theme ">
-										<i class="fa fa-trash" aria-hidden="true"></i>
-									</a>
-								</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-				</div>
-				{!!$contents->appends(Request::input())->render()!!}
-				
-			</div>
-			<!-- end card-body -->
-		</div>
-		<!-- end card -->
-	</div>
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-5 align-self-center">
+            <h4 class="page-title">Cadastrar - Página 1</h4>
+        </div>
+        <div class="col-7 align-self-center">
+            <div class="d-flex align-items-center justify-content-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#">Páginas</a>
+                        </li>       
+                        <li class="breadcrumb-item">
+                            <a href="#">Página 1</a>
+                        </li>                                            
+                        <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Project Assinging</h4>
+                    <h6 class="card-subtitle">To use add <code>.r-separator</code> class in the form with form styling.</h6>
+                </div>
+                <hr class="m-t-0">
+                <form class="form-horizontal r-separator">
+                    <div class="card-body">
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Título</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Título">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Sub-Título</label> 
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Sub-Título">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Registro em destaque</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox2" value="check">
+                                    <label class="custom-control-label" for="checkbox2"> Destaque</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Imagem em destaque</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <div class="fallback dropzone">
+                                    <input name="file" type="file" multiple />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Categoria</label> 
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <select class="form-control">
+                                    <option>Selecione</option>
+                                    <option>Categoria 1</option>
+                                    <option>Categoria 2</option>
+                                    <option>Categoria 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Resumo</label> 
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <textarea class="form-control" rows="3" placeholder="Resumo do conteúdo"></textarea>
+                            </div>
+                        </div>  
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Sub-Título</label> 
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Sub-Título">
+                            </div>
+                        </div>                                                
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group m-b-0 text-right">
+                            <button type="submit" class="btn btn-info waves-effect waves-light">Cadastrar</button>
+                            <button type="submit" class="btn btn-dark waves-effect waves-light">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Employee Timing</h4>
+                    <h6 class="card-subtitle">To use add <code>.r-separator</code> class in the form with form styling.</h6>
+                </div>
+                <hr class="m-t-0">
+                <form class="form-horizontal r-separator">
+                    <div class="card-body">
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Employee Name</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Employee Name Here">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Project Name</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Project Name Here">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Date</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="date" class="form-control" id="inputEmail3" placeholder="Date Here">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Rate Per Hour</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Rate Per Hour Here">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Start Time</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="time" class="form-control" id="inputEmail3" placeholder="Start Time Here">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">End Time</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="time" class="form-control" id="inputEmail3" placeholder="End Time Here">
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-center m-b-0">
+                            <label for="inputEmail3" class="col-3 text-right control-label col-form-label">Notes</label>
+                            <div class="col-9 border-left p-b-10 p-t-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Notes Here">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <div class="form-group m-b-0 text-right">
+                            <button type="submit" class="btn btn-info waves-effect waves-light">Cadastrar</button>
+                            <button type="submit" class="btn btn-dark waves-effect waves-light">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection 

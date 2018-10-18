@@ -39,6 +39,7 @@ elixir((mix) => {
 	/* SCSS Cms */
 	mix.sass('resources/assets/sass/cms/style.scss', 'public/css/cms/style.css');
 	mix.sass(['resources/assets/sass/cms/pages/dashboard.scss'], 'public/css/cms/cms-dashboard.css');
+	mix.sass(['resources/assets/sass/cms/pages/contents.scss'], 'public/css/cms/cms-contents.css');
 
 
 	/* JS Libs Cms */
@@ -70,8 +71,11 @@ elixir((mix) => {
 	mix.scripts([
 		'resources/assets/js/libs/chartist/dist/chartist.min.js',
 		'resources/assets/js/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js',
-		'resources/assets/js/libs/sparkline.js',
 		], 'public/js/cms/cms-dashboard-libs.js'); 
+
+	mix.scripts([
+		'resources/assets/js/libs/dropzone/dist/min/dropzone.min.js',
+		], 'public/js/cms/cms-contents-libs.js'); 	
 
 
 	// // ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
@@ -80,9 +84,9 @@ elixir((mix) => {
 		'resources/assets/js/cms/modules/graphs_dashboard.js',
 		], 'public/js/cms/cms-dashboard.js'); 
 
-
-
-
+	mix.scripts([
+		'resources/assets/js/cms/modules/forms_contents.js',
+		], 'public/js/cms/cms-contents.js'); 	
 
 
 
