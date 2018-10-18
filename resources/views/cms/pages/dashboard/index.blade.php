@@ -156,44 +156,78 @@
 	</div>
 
 	<div class="row">
-		<div class="col-12">
+		<div class="col-8">
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
                         <div class="col-12">
                             <ul class="list-inline float-right">
                                 <li class="list-inline-item">
-                                    <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-success"></i>Product A</h6> </li>
+                                    <h6 class="text-muted"><i class="fa fa-circle m-r-5 ct-a-legend"></i>Vísitas únicas</h6> </li>
                                 <li class="list-inline-item">
-                                    <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-info"></i>Product B</h6> </li>
+                                    <h6 class="text-muted"><i class="fa fa-circle m-r-5 ct-b-legend"></i>Total de vísitas</h6> </li>
                             </ul>
-                            <h4 class="card-title">Revenue Statistics</h4>
-                            <h5 class="card-subtitle">January 2017</h5>
+                            <h4 class="card-title">Gráfico de vísitas anual </h4>
+                            <h5 class="card-subtitle">2018</h5>
                         </div>
                         <div class="col-12 m-t-20 revenue">
                             <div class="total-revenue4" style="height: 350px;"></div>
                         </div>
-                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
-                            <h1 class="m-b-0 font-light">$54578</h1>
-                            <h6 class="text-muted">Total Revenue</h6>
-                        </div>
-                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
-                            <h1 class="m-b-0 font-light">$43451</h1>
-                            <h6 class="text-muted">Online Revenue</h6>
-                        </div>
-                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
-                            <h1 class="m-b-0 font-light">$44578</h1>
-                            <h6 class="text-muted">Product A</h6>
-                        </div>
-                        <div class="col-lg-3 col-md-6 m-b-30 m-t-20 text-center">
-                            <h1 class="m-b-0 font-light">$12578</h1>
-                            <h6 class="text-muted">Product B</h6>
-                        </div>
+                       
                     </div>
 				</div>
 			</div>
 		</div>
+		<div class="col-4">
+		<div class="card">
+			<div class="card-body">
+                <h4 class="card-title">Atividades recentes (log)</h4>
+                <div class="profiletimeline">
+                    <div class="sl-item">
+                        <div class="sl-left"> {!!img('users/2.jpg', array('class' => 'rounded-circle','width' => '40', 'height' => '40'))!!} </div>
+                        <div class="sl-right">
+                            <div><a href="javascript:void(0)" class="link">Humberto Martins</a> <span class="sl-date">5 minutos atrás</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="sl-item">
+                        <div class="sl-left"> {!!img('users/2.jpg', array('class' => 'rounded-circle','width' => '40', 'height' => '40'))!!} </div>
+                        <div class="sl-right">
+                            <div> <a href="javascript:void(0)" class="link">Humberto Martins</a> <span class="sl-date">5 minutos atrás</span>
+                                <div class="m-t-20 row">
+                                    <div class="col-md-9 col-12">
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. </p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="sl-item">
+                        <div class="sl-left"> {!!img('users/2.jpg', array('class' => 'rounded-circle','width' => '40', 'height' => '40'))!!} </div>
+                        <div class="sl-right">
+                            <div><a href="javascript:void(0)" class="link">Humberto Martins</a> <span class="sl-date">5 minutos atrás</span>
+                                <p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="sl-item">
+                        <div class="sl-left"> {!!img('users/2.jpg', array('class' => 'rounded-circle','width' => '40', 'height' => '40'))!!} </div>
+                        <div class="sl-right">
+                            <div><a href="javascript:void(0)" class="link">Humberto Martins</a> <span class="sl-date">minutos atrás</span>
+                                <blockquote class="m-t-10">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>			
 	</div>
+	
 </div>
 
 @endsection

@@ -16419,6 +16419,38 @@ File: scss
   color: #fff !important;
 }
 
+.ct-series-a .ct-line {
+  stroke: #66bcbe !important;
+  stroke-width: 3px;
+  stroke-dasharray: 10px 20px;
+}
+
+.ct-series-a .ct-point {
+  stroke: #66bcbe !important;
+  stroke-width: 10px;
+  stroke-linecap: ball;
+}
+
+.ct-series-b .ct-line {
+  stroke: #625ca2 !important;
+  stroke-width: 3px;
+  stroke-dasharray: 10px 20px;
+}
+
+.ct-series-b .ct-point {
+  stroke: #625ca2 !important;
+  stroke-width: 10px;
+  stroke-linecap: ball;
+}
+
+.ct-a-legend {
+  color: #625ca2 !important;
+}
+
+.ct-b-legend {
+  color: #66bcbe !important;
+}
+
 .ct-double-octave:after, .ct-major-eleventh:after, .ct-major-second:after, .ct-major-seventh:after, .ct-major-sixth:after, .ct-major-tenth:after, .ct-major-third:after, .ct-major-twelfth:after, .ct-minor-second:after, .ct-minor-seventh:after, .ct-minor-sixth:after, .ct-minor-third:after, .ct-octave:after, .ct-perfect-fifth:after, .ct-perfect-fourth:after, .ct-square:after {
   content: "";
   clear: both;
