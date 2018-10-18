@@ -1,8 +1,8 @@
 ;(function($){
-    function dropzone() {
-       $(".dropzone").dropzone({ url: "/file/post" });
+    function textarea_content() {
+    	CKEDITOR.replace('ckeditor');
     }
-    new dropzone();
+    new textarea_content();
 }(jQuery));
 
 //# sourceMappingURL=cms-contents.js.map

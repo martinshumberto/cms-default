@@ -74,7 +74,7 @@ elixir((mix) => {
 		], 'public/js/cms/cms-dashboard-libs.js'); 
 
 	mix.scripts([
-		'resources/assets/js/libs/dropzone/dist/min/dropzone.min.js',
+		'resources/assets/js/libs/ckeditor/ckeditor.js',
 		], 'public/js/cms/cms-contents-libs.js'); 	
 
 
